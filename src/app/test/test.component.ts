@@ -7,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
       Welcome {{name}}
   </h2>
 
-  <button (click)="onClick($event)">Greet</button>
-  <button (click)="greeting='Welcome Angirmene'">Greet</button>
-  {{greeting}}
-
-
+  <input #myInput type="text">
+  <button (click)="logMessage(myInput)">Log</button>
 
   `,
   styles: []
@@ -20,16 +17,13 @@ export class TestComponent implements OnInit {
 
   public name = "Angirmene";
 
-  public greeting = "";
-
   constructor() { }
 
   ngOnInit() {
   }
 
-  onClick(event){
-    console.log(event);
-    this.greeting = "Welcome to Nigerian Revolution";
+  logMessage(value){
+    console.log(value);
   }
 
 }
