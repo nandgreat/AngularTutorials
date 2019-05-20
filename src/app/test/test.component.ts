@@ -2,27 +2,48 @@ import { Component, OnInit, Input } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 
+
 @Component({
   selector: 'app-test',
   template: `  
-    <h2>{{"Hello " + name}}</h2>
-    <button (click)="fireEvent()">Send Event</button>
+    <h2>{{name}}</h2>
+    <h2>{{name | lowercase}}</h2>
+    <h2>{{name | uppercase}}</h2>
+    <h2>{{message | titlecase}}</h2>
+    <h2>{{name | slice:3}}</h2>
+    <h2>{{name | slice:3:5}}</h2>
+    <h2>{{person | json}}
+
+    <h2>{{5.678 | number:'1.2-3'}}</h2>
+    <h2>{{5.678 | number:'3.4-5'}}</h2>
+    <h2>{{5.678 | number:'3.1-2'}}</h2>
+
+    <h2>{{0.25 | percent}}</h2>
+    <h2>{{0.25 | currency}}</h2>
+    <h2>{{0.25 | currency: 'EUR'}}</h2>
+
+    <h2>{{date}}</h2>
+
+
+  
   `,
   styles: []
 })
 export class TestComponent implements OnInit {
 
-  @Input('parentData') public name;
+  public name = "Nigerian Revolution";
+  public message = "Welcome to Nigerian Revolution";
 
-  @Output() public childEvent = new EventEmitter();
+  public person = {
+    "firstName": "John",
+    "lastName": "Doe"
+  }
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  fireEvent(){
-    this.childEvent.emit("Hey Nigerian Revolution");
-  }
+  
 
 }
