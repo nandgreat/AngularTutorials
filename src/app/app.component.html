@@ -5,5 +5,10 @@
   </h1> 
 </div>
 
-<employee-list></employee-list>
- <employee-details></employee-details>
+<nav>
+  <a routerLink="/departments" routerLinkActive="active">Departments</a>
+  <a routerLink="/employees" routerLinkActive="active">Employees</a>
+</nav>
+
+<router-outlet></router-outlet>
+<!-- Router view goes here -->
